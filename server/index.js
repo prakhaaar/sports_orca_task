@@ -5,16 +5,16 @@ const cors = require("cors");
 const app = express();
 const PORT = 5000;
 
-// Enable CORS so frontend clients  can access this API
+// Enable CORS so frontend clients can access this API
 app.use(cors({
-  origin: 'https://sports-orca-psi.vercel.app'
+  origin: 'https://sports-orca-psi.vercel.app' // or whichever deployed domain you're using
 }));
-// API token for accessing football-data.org
-const API_TOKEN = "21fb2b562bf147bcafaf3252c4038323";
+
+// ✅ Replace with your new API token
+const API_TOKEN = "81d804275815428c8ffe628b8345fe7a";
 
 // API endpoint for upcoming Premier League matches
-const MATCHES_URL =
-  "https://api.football-data.org/v4/competitions/PL/matches?status=SCHEDULED";
+const MATCHES_URL = "https://api.football-data.org/v4/competitions/PL/matches?status=SCHEDULED";
 
 // API endpoint for all Premier League teams (used to get team logos)
 const TEAMS_URL = "https://api.football-data.org/v4/competitions/PL/teams";
@@ -65,9 +65,7 @@ app.get("/api/matches", async (req, res) => {
     res.json(matches);
   } catch (error) {
     console.error("❌ Error fetching match data:", error);
-    res
-      .status(500)
-      .json({ error: error.message || "Failed to fetch match data" });
+    res.status(500).json({ error: error.message || "Failed to fetch match data" });
   }
 });
 
