@@ -6,8 +6,9 @@ const app = express();
 const PORT = 5000;
 
 // Enable CORS so frontend clients  can access this API
-app.use(cors());
-
+app.use(cors({
+  origin: 'https://sports-orca-psi.vercel.app'
+}));
 // API token for accessing football-data.org
 const API_TOKEN = "21fb2b562bf147bcafaf3252c4038323";
 
