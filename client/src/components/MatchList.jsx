@@ -5,9 +5,12 @@ export default function MatchList() {
   const [matches, setMatches] = useState([]); // Stores the list of matches
   const [loading, setLoading] = useState(true); // Indicates if data is still being fetched
 
+  // Get backend API base URL from environment variables
+  const API_BASE_URL = process.env.REACT_APP_API_URL;
+
   useEffect(() => {
     // Fetch match data from the backend API when the component mounts
-    fetch("/api/matches")
+    fetch(`${API_BASE_URL}/api/matches`)
       .then((res) => res.json())
       .then((data) => {
         setMatches(data); // Save fetched match data to state
@@ -17,7 +20,7 @@ export default function MatchList() {
         console.error("Error fetching matches:", err);
         setLoading(false); // Even on error, stop loading spinner
       });
-  }, []);
+  }, [API_BASE_URL]);
 
   return (
     <section className="min-h-screen bg-gradient-to-b from-[#0f0f0f] to-[#1c1c1c] text-white px-4 py-12 font-sans">
