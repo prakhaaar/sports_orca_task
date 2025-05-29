@@ -6,7 +6,7 @@ export default function MatchList() {
   const [loading, setLoading] = useState(true); // Indicates if data is still being fetched
 
   // Get backend API base URL from environment variables
-   const API_BASE_URL = import.meta.env.VITE_API_URL;
+   const API_BASE_URL = import.meta.env.REACT_APP_API_URL
 
   useEffect(() => {
     // Fetch match data from the backend API when the component mounts
