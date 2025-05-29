@@ -10,7 +10,7 @@ export default function MatchList() {
 
   useEffect(() => {
     // Fetch match data from the backend API when the component mounts
-    fetch(`${API_BASE_URL}/api/matches`)
+  fetch(`${API_BASE_URL}/api/matches`)
       .then((res) => res.json())
       .then((data) => {
         setMatches(data); // Save fetched match data to state
