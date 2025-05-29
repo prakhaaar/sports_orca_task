@@ -6,12 +6,15 @@ const app = express();
 const PORT = 5000;
 
 // ✅ Allow all relevant frontend domains
+// Update CORS configuration in backend:
 app.use(cors({
   origin: [
     'https://sports-orca-psi.vercel.app',
-    'https://sports-orca-git-main-prakhars-projects-5b7f3a64.vercel.app',
-    'https://sports-orca-4ii5ga2tz-prakhars-projects-5b7f3a64.vercel.app'
-  ]
+    // Add these wildcard patterns for Vercel preview deployments:
+    /https:\/\/sports-orca-.*-prakhars-projects\.vercel\.app/,
+    /https:\/\/sports-orca-.*\.vercel\.app/
+  ],
+  methods: ['GET']
 }));
 
 // ✅ Use the new API token from football-data.org
