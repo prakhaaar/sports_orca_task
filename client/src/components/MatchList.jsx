@@ -97,4 +97,4 @@ export default function MatchList() {
     </section>
   );
 }
-make responsive
+
